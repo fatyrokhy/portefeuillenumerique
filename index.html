@@ -8,9 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-100 font-poppins">
-    <div class="grid grid-cols-[25%_auto]  gap-2 p-12">
-        <div class="grid grid-cols-1 gap-1 bg-white rounded-xl shadow-lg  ">
-            <form method="POST" class="w-full grid grid-cols-1 gap-1 p-6 min-h-8">
+    <div class="grid grid-cols-[25%_auto]   gap-2 px-12 py-24">
+        <div class="grid grid-cols-1 gap-1  bg-white rounded-xl shadow-lg  ">
+            <form method="POST" class="w-full grid grid-cols-1 gap-1 p-6">
                 <p class="text-2xl font-semibold text-center mt-4">Ajouter un(e) client(e)</p>
                 <div class="">
                     <label for="nom" class="block text-gray-700 m-2">Nom</label>
@@ -39,7 +39,59 @@
                 <button type="submit" class="bg-slate-500 w-[50%] text-white font-semibold px-4 py-2 rounded-full place-self-center" name="add">ajouter</button>
             </form>
         </div>
-            <div class=" bg-red-400">Papa</div>
+            <div class="grid grid-cols-[75%_auto] ">
+                <div class="grid grid-cols-[5%_auto]  bg-red-400">
+                    <div class=""></div>
+                    <div class="grid grid-row-1 gap-4">
+                        <div class="row-span-1 bg-white rounded-lg grid grid-cols-[8%_auto_8%] gap-2">
+                            <div class="bg-red-100"></div>
+                            <div class="bg-red-100">
+                                <div class=" mr-6">
+                                    <img alt="Photo de Profil" class="w-20 h-20 rounded-full" />
+                                </div>
+                    
+                            </div>
+                            <div class="bg-red-100"></div>
+                        </div>
+                        <div class="row-span-2 bg-red-200"></div>
+                    </div>
+                </div>
+                <div class="  grid grid-cols-1 gap-1  bg-white rounded-xl shadow-lg">
+                    <form method="POST" class="w-full grid grid-cols-1 gap-1 p-6">
+                        <p class="text-2xl font-semibold text-center mt-4">Transaction</p>
+                        <div class="">
+                            <label for="nom" class="block text-gray-700 m-2">Date</label>
+                            <input type="date" class="peer border border-gray-300 rounded-full p-2 h-8 w-full focus:outline-none focus:ring-2 focus:ring-slate-300"
+                             name="nom" id="" aria-describedby="emailHelp">
+                            <div class="mt-1 text-red-500 text-sm  peer-invalid:block"></div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="prenom" class="block text-gray-700 m-2">Numéro</label>
+                            <input type="text" class="peer border border-gray-300 rounded-full p-2  h-8 w-full focus:outline-none focus:ring-2 focus:ring-slate-300"
+                             name="prenom" id="" aria-describedby="emailHelp">
+                            <div class="mt-1 text-red-500 text-sm "></div>
+                        </div>
+                        <div class="">
+                            <label for="transactionType" class="block text-gray-700">Type de transaction</label>
+                            <select id="transactionType" class="w-full p-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-slate-300" >
+                                <option value="retrait">Choisissez</option>
+                                <option value="retrait">Retrait</option>
+                                <option value="depot">Dépôt</option>
+                                <option value="transfert">Transfert</option>
+                            </select>
+                            <div id="error-type" class="mt-1 text-red-500 text-sm"></div>
+                        </div>
+                                <div class="mb-4">
+                            <label for="telephone" class="block text-gray-700 m-2">Montant</label>
+                            <input type="text" class="peer border border-gray-300 rounded-full p-2 h-8 w-full focus:outline-none focus:ring-2   focus:ring-slate-300"
+                            name="telephone" id="" aria-describedby="emailHelp">
+                            <div class="mt-1 text-red-500 text-sm "></div>
+                        </div>    
+                        <button type="submit" class="bg-slate-500 w-[50%] text-white font-semibold px-4 py-2 rounded-full place-self-center" name="add">ajouter</button>
+                    </form>
+        
+                </div>
+            </div>
     </div> 
     <!-- <div class="grid grid-rows-3 grid-flow-col gap-4">
         <div class="row-span-3 bg-black">01</div>
