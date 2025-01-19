@@ -3,9 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Porte Feuille Numérique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
-<body>
-    
+<body class="bg-gray-100 font-poppins">
+    <div class="grid grid-cols-[25%_auto]  gap-2 p-12">
+        <div class="grid grid-cols-1 gap-1 bg-white rounded-xl shadow-lg  ">
+            <form method="POST" class="w-full grid grid-cols-1 gap-1 p-6 min-h-8">
+                <p class="text-2xl font-semibold text-center mt-4">Ajouter un(e) client(e)</p>
+                <div class="">
+                    <label for="nom" class="block text-gray-700 m-2">Nom</label>
+                    <input type="text" class="peer border border-gray-300 rounded-full p-2 h-8 w-full focus:outline-none focus:ring-2 focus:ring-slate-300"
+                     name="nom" id="" aria-describedby="emailHelp">
+                    <div class="mt-1 text-red-500 text-sm  peer-invalid:block"></div>
+                </div>
+                <div class="">
+                    <label for="prenom" class="block text-gray-700 m-2">Prénom</label>
+                    <input type="text" class="peer border border-gray-300 rounded-full p-2  h-8 w-full focus:outline-none focus:ring-2 focus:ring-slate-300"
+                     name="prenom" id="" aria-describedby="emailHelp">
+                    <div class="mt-1 text-red-500 text-sm  peer-invalid:block"></div>
+                </div>
+                <div class="">
+                    <label for="age" class="block text-gray-700 m-2">Montant</label>
+                    <input type="text" class="peer border border-gray-300 rounded-full p-2   h-8 w-full focus:outline-none focus:ring-2 focus:ring-slate-300"
+                     name="age" id="" aria-describedby="emailHelp">
+                    <div class="mt-1 text-red-500 text-sm  peer-invalid:block"></div>
+                </div>
+                <div class="mb-4">
+                    <label for="telephone" class="block text-gray-700 m-2">Téléphone</label>
+                    <input type="text" class="peer border border-gray-300 rounded-full p-2 h-8 w-full focus:outline-none focus:ring-2   focus:ring-slate-300"
+                    name="telephone" id="" aria-describedby="emailHelp">
+                    <div class="mt-1 text-red-500 text-sm  peer-invalid:block"></div>
+                </div>    
+                <button type="submit" class="bg-slate-500 w-[50%] text-white font-semibold px-4 py-2 rounded-full place-self-center" name="add">ajouter</button>
+            </form>
+        </div>
+            <div class=" bg-red-400">Papa</div>
+    </div> 
+    <!-- <div class="grid grid-rows-3 grid-flow-col gap-4">
+        <div class="row-span-3 bg-black">01</div>
+        <div class="col-span-2 bg-slate-500">02</div>
+        <div class="row-span-2 col-span-2 ">03</div>
+      </div>    -->
 </body>
 </html>
