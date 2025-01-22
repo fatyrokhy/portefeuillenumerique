@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,96 +8,83 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-100 font-poppins">
-    <div class="grid grid-cols-[25%_auto]   gap-2 px-12 py-24">
-        <div class="grid grid-cols-1 gap-1  bg-white rounded-xl shadow-lg  ">
-            <form method="POST" class="w-full grid grid-cols-1 gap-1 p-6">
-                <p class="text-2xl font-semibold text-center mt-4">Ajouter un(e) client(e)</p>
-                <div class="">
-                    <label for="nom" class="block text-gray-700 m-2">Nom</label>
-                    <input type="text" class="peer border border-gray-300 rounded-full p-2 h-8 w-full focus:outline-none focus:ring-2 focus:ring-slate-300"
-                     name="nom" id="" aria-describedby="emailHelp">
-                    <div class="mt-1 text-red-500 text-sm  peer-invalid:block"></div>
-                </div>
-                <div class="">
-                    <label for="prenom" class="block text-gray-700 m-2">Prénom</label>
-                    <input type="text" class="peer border border-gray-300 rounded-full p-2  h-8 w-full focus:outline-none focus:ring-2 focus:ring-slate-300"
-                     name="prenom" id="" aria-describedby="emailHelp">
-                    <div class="mt-1 text-red-500 text-sm  peer-invalid:block"></div>
-                </div>
-                <div class="">
-                    <label for="age" class="block text-gray-700 m-2">Montant</label>
-                    <input type="text" class="peer border border-gray-300 rounded-full p-2   h-8 w-full focus:outline-none focus:ring-2 focus:ring-slate-300"
-                     name="age" id="" aria-describedby="emailHelp">
-                    <div class="mt-1 text-red-500 text-sm  peer-invalid:block"></div>
-                </div>
-                <div class="mb-4">
-                    <label for="telephone" class="block text-gray-700 m-2">Téléphone</label>
-                    <input type="text" class="peer border border-gray-300 rounded-full p-2 h-8 w-full focus:outline-none focus:ring-2   focus:ring-slate-300"
-                    name="telephone" id="" aria-describedby="emailHelp">
-                    <div class="mt-1 text-red-500 text-sm  peer-invalid:block"></div>
-                </div>    
-                <button type="submit" class="bg-slate-500 w-[50%] text-white font-semibold px-4 py-2 rounded-full place-self-center" name="add">ajouter</button>
-            </form>
-        </div>
-            <div class="grid grid-cols-[75%_auto] ">
-                <div class="grid grid-cols-[5%_auto]  bg-red-400">
-                    <div class=""></div>
-                    <div class="grid grid-row-1 gap-4">
-                        <div class="row-span-1 bg-white rounded-lg grid grid-cols-[8%_auto_8%] gap-2">
-                            <div class="bg-red-100"></div>
-                            <div class="bg-red-100">
-                                <div class=" mr-6">
-                                    <img alt="Photo de Profil" class="w-20 h-20 rounded-full" />
+
+<body class="bg-gray-300 font-poppins">
+    <div id="mere" class="grid grid-row-2 grid-flow-col  gap-2 px-12 py-24">
+        <!-- Ajout Client -->
+
+        <div id="transaction" class="order-2 col-span-9 grid grid-row-2 grid-flow-col ">
+            <!-- profil_transaction -->
+            <div class="grid grid-row-3 grid-flow-col col-span-9 ">
+                <!-- l'icone ajoutClient -->
+                <button id="ajout" class="row-span-3 place-self-stretch text-end animate-bounce h-6 text-3xl font-semibold text-slate-900 col-span-1">
+                    <i class="ri-add-circle-fill"></i>
+                </button>
+                
+                <div class="grid grid-cols-1 row-span-3  col-span-11 order-1">
+                    <!-- profil -->
+                    <div
+                        class="  bg-white rounded-lg grid grid-row-3 grid-flow-col gap-2  overflow-auto border border-slate-300">
+                        <!-- l'icone précédent -->
+                        <button id="precedent" class="place-self-start  mt-24 ml-2  col-span-1  text-slate-700 text-3xl ">
+                            <i class="ri-arrow-left-circle-line"></i>
+                        </button>
+                        <!-- profil client -->
+                        <div class="grid grid-cols-1  gap-4 p-2 col-span-10  ">
+                            <div class="flex gap-16 place-items-center">
+                                <div id="photoProfil" class="ml-1  w-32 h-32 rounded-full  ">
+                                    <!-- inserer l'image-->
                                 </div>
-                    
+                                <h2 id="nomClient" class=" text-2xl flex items-center text-center font-semibold text-slate-700">
+                                    <!-- nom et prénom -->
+                                </h2>
                             </div>
-                            <div class="bg-red-100"></div>
+                            <div class="grid grid-cols-3  gap-4 p-2 ">
+                                <div class="rounded-es-full  rounded-se-full p-5 flex items-center   bg-slate-300 h-12">
+                                    <p id="mailClient" class="text-gray-700 font-poppins font-semibold ml-8 "><!--telephone--></p>
+                                </div>
+                                <div class=" rounded-es-full  rounded-se-full flex items-center text-center  bg-slate-800 h-12">
+                                    <p id="soldeClient" class="text-white font-poppins font-semibold ml-12"><!--montant--></p>
+                                </div>
+                                <div class=" rounded-es-full text-center  rounded-se-full flex items-center  bg-slate-300 h-12">
+                                    <p id="telClient" class="text-gray-700 font-poppins font-semibold ml-12"><!--email--></p>
+                                </div>
+
+                            </div>
+                            <!-- liste transaction -->
+                            <!-- <div class="   rounded-lg h-56 p-4"> -->
+                                <div class="flex text-2xl items-center mb-2 justify-between  text-slate-900">
+                                    <p class="font-semibold">Liste des Transactions</p>
+                                    <!-- Ajout Transaction -->
+                                   <button id="addTransaction" class="animate-pulse font-semibold"> <i class="ri-add-circle-line "></i></button>
+                                </div>
+                                <table class="w-full  border-collapse">
+                                    <thead>
+                                        <tr class="bg-gray-800 text-white">
+                                            <th class="p-2">Date</th>
+                                            <th class="p-2">Numéro</th>
+                                            <th class="p-2">Type</th>
+                                            <th class="p-2">Montant (FCFA)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="transactionsTable" class="text-center">
+                                        <!-- chargement de la liste des transactions ici -->
+                                    </tbody>
+                                </table>
+                            <!-- </div> -->
+
                         </div>
-                        <div class="row-span-2 bg-red-200"></div>
+                        <!-- l'icone suivant -->
+                        <button id="suivant" class="place-self-start  mt-24 col-span-1  text-slate-700 text-3xl">
+                            <i class="ri-arrow-right-circle-line"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="  grid grid-cols-1 gap-1  bg-white rounded-xl shadow-lg">
-                    <form method="POST" class="w-full grid grid-cols-1 gap-1 p-6">
-                        <p class="text-2xl font-semibold text-center mt-4">Transaction</p>
-                        <div class="">
-                            <label for="nom" class="block text-gray-700 m-2">Date</label>
-                            <input type="date" class="peer border border-gray-300 rounded-full p-2 h-8 w-full focus:outline-none focus:ring-2 focus:ring-slate-300"
-                             name="nom" id="" aria-describedby="emailHelp">
-                            <div class="mt-1 text-red-500 text-sm  peer-invalid:block"></div>
-                        </div>
-                        <div class="mb-2">
-                            <label for="prenom" class="block text-gray-700 m-2">Numéro</label>
-                            <input type="text" class="peer border border-gray-300 rounded-full p-2  h-8 w-full focus:outline-none focus:ring-2 focus:ring-slate-300"
-                             name="prenom" id="" aria-describedby="emailHelp">
-                            <div class="mt-1 text-red-500 text-sm "></div>
-                        </div>
-                        <div class="">
-                            <label for="transactionType" class="block text-gray-700">Type de transaction</label>
-                            <select id="transactionType" class="w-full p-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-slate-300" >
-                                <option value="retrait">Choisissez</option>
-                                <option value="retrait">Retrait</option>
-                                <option value="depot">Dépôt</option>
-                                <option value="transfert">Transfert</option>
-                            </select>
-                            <div id="error-type" class="mt-1 text-red-500 text-sm"></div>
-                        </div>
-                                <div class="mb-4">
-                            <label for="telephone" class="block text-gray-700 m-2">Montant</label>
-                            <input type="text" class="peer border border-gray-300 rounded-full p-2 h-8 w-full focus:outline-none focus:ring-2   focus:ring-slate-300"
-                            name="telephone" id="" aria-describedby="emailHelp">
-                            <div class="mt-1 text-red-500 text-sm "></div>
-                        </div>    
-                        <button type="submit" class="bg-slate-500 w-[50%] text-white font-semibold px-4 py-2 rounded-full place-self-center" name="add">ajouter</button>
-                    </form>
-        
-                </div>
+
             </div>
-    </div> 
-    <!-- <div class="grid grid-rows-3 grid-flow-col gap-4">
-        <div class="row-span-3 bg-black">01</div>
-        <div class="col-span-2 bg-slate-500">02</div>
-        <div class="row-span-2 col-span-2 ">03</div>
-      </div>    -->
+            <!--Ajout Transaction  -->
+    </div>
+    <script src="/fonction.js"></script>
 </body>
+
 </html>

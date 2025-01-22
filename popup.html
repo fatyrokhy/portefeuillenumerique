@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function showPopup() {
+    // Création du conteneur de la popup
+    let popup = document.createElement("div");
+    popup.style.position = "fixed";
+    popup.style.top = "50%";
+    popup.style.left = "50%";
+    popup.style.transform = "translate(-50%, -50%)";
+    popup.style.padding = "20px";
+    popup.style.background = "white";
+    popup.style.border = "2px solid black";
+    popup.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.5)";
+    popup.style.zIndex = "1000";
+
+    // Ajout du message
+    let text = document.createElement("p");
+    text.textContent = "Vous avez cliqué sur le bouton !";
+    popup.appendChild(text);
+
+    // Bouton de fermeture
+    let closeBtn = document.createElement("button");
+    closeBtn.textContent = "Fermer";
+    closeBtn.style.marginTop = "10px";
+    closeBtn.onclick = function () {
+        document.body.removeChild(popup); // Supprime la popup
+    };
+    popup.appendChild(closeBtn);
+
+    // Ajout de la popup au body
+    document.body.appendChild(popup);
+
+//     document.addEventListener("click", function removePopup(event){
+//         if (!popup.contains(event.target)) { 
+//             popup.remove(); // Supprime la popup
+//             document.removeEventListener("click", removePopup); // Supprime l'événement après suppression
+//         }
+
+// })
+}
+
+// Ajout d'un bouton au DOM
+let button = document.createElement("button");
+button.textContent = "Afficher la popup";
+button.style.padding = "10px";
+button.style.margin = "20px";
+button.style.cursor = "pointer";
+button.onclick = showPopup;
+
+document.body.appendChild(button);
+
+    </script>
+</body>
+</html>
