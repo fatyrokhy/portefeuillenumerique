@@ -4,12 +4,13 @@ async function afficherClient() {
         if(localStorage.getItem("client") == null) {
             const reponse = await fetch("tableau.json");
             const tabJson = await reponse.json();
-            console.log("tabJson");
-
+            console.log("tabJson1");
+            console.log(tabJson.client);
             // Sauvegarder les données dans le localStorage
-            localStorage.setItem("client", JSON.stringify(tabJson));
+            localStorage.setItem("client", JSON.stringify(tabJson.client));
             donneStock = localStorage.getItem("client");
         } else {
+            console.log("tabJson2");
             donneStock = localStorage.getItem("client");
         
         }
@@ -76,8 +77,13 @@ async function afficherClient() {
             }
         });
 
+        let popupOuvertClient=false;
         // Fonction pour afficher le formulaire d'ajout de client
         function ajout_client() {
+            if (popupOuvertClient) {
+                return; 
+            }
+            popupOuvertClient=true;
             let ajoutClient = document.createElement("div");
             let divMere = document.getElementById("mere");
 
@@ -129,6 +135,7 @@ async function afficherClient() {
             //  Fermer le popup
             ajoutClient.querySelector("#closeBtn").addEventListener("click", function () {
                 divMere.removeChild(ajoutClient);
+                popupOuvertClient=false;
             });
 
             //  Gestion de l'ajout d'un client
@@ -247,13 +254,14 @@ async function afficherClient() {
                     // Récupérer les clients existants depuis localStorage
                     let clients = JSON.parse(localStorage.getItem("client")) || [];
                 
-                    clients.client.push(nouveauClient);
+                    clients.push(nouveauClient);
                     // Sauvegarder la nouvelle liste dans localStorage
                     localStorage.setItem("client", JSON.stringify(clients));
                     // raffraichir
                     afficherDetails(nouveauClient);
                     // fermer popup après ajout
                     divMere.removeChild(ajoutClient);
+                    popupOuvertClient = false;
                 }
             });
         }
@@ -262,7 +270,13 @@ async function afficherClient() {
         document.getElementById('ajout').onclick = ajout_client;
 
         // Pour le popup de l'ajout transaction
+        let popupOuvert = false;
 function ajoutTransaction() {
+    if (popupOuvert) {
+        return; 
+    }
+
+    popupOuvert = true;
     let cli = clients[index];
     console.log(cli);
     let ajouTransaction=document.createElement("div");
@@ -314,6 +328,7 @@ function ajoutTransaction() {
     let close = ajouTransaction.querySelector("#closeBtn1");
     close.addEventListener("click", function () {
         transaction.removeChild(ajouTransaction);
+        popupOuvert = false;
     });
 
     forme= ajouTransaction.querySelector("#formTransaction")
@@ -374,7 +389,10 @@ function ajoutTransaction() {
         } else if (montant<500) {
             erreurMontant.textContent = "Le montant devrait etre supérieur ou égale à 500.";
             isValid = false;
-        } else if (montant>cli.montant) {
+        } else if (montant > cli.montant) {
+            console.log(type);
+            console.log(montant);
+            console.log(cli.montant);
             if (type=='retrait' || type=='transfert') {
              erreurMontant.textContent = "Le montant est insuffisant.";
             isValid = false; 
@@ -422,6 +440,7 @@ function ajoutTransaction() {
         }
             // fermer popup après ajout
              transaction.removeChild(ajouTransaction);
+             popupOuvert = false;
              // raffraichir
              afficherDetails(cli);
      });
